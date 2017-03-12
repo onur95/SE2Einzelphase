@@ -10,24 +10,33 @@ public class MainActivity extends AppCompatActivity {
     EditText txtDividend;
     EditText txtDivisor;
     EditText txtOutput;
+    Calculator c;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtDividend=(EditText)findViewById(R.id.txtDividend);
-        txtDivisor=(EditText)findViewById(R.id.txtDivisor);
-        txtOutput=(EditText)findViewById(R.id.txtOutput);
+        txtDividend = (EditText) findViewById(R.id.txtDividend);
+        txtDivisor = (EditText) findViewById(R.id.txtDivisor);
+        txtOutput = (EditText) findViewById(R.id.txtOutput);
+        c = new Calculator();
     }
 
-    public void calculate (View v){
+    public void calculate(View v) {
         txtOutput.setText("");
-        if(txtDividend.getText().length()==0 || txtDivisor.getText().length()==0){
+        String dividend = txtDividend.getText().toString();
+        String divisor = txtDivisor.getText().toString();
+        int result = 0;
+        if (dividend.length() == 0 || divisor.length() == 0) {
             txtOutput.setText("Beide Felder ausfüllen!");
-        }
-        else{
-
+        } else {
+            try {
+                result = c.divide(Integer.parseInt(dividend), Integer.parseInt(divisor));
+                txtOutput.setText(String.valueOf(result));
+            } catch (Exception f) {
+                txtOutput.setText(f.getMessage());
+            }
         }
     }
 }
