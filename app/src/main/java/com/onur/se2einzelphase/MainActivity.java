@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         txtOutput.setText("");
         String dividend = txtDividend.getText().toString();
         String divisor = txtDivisor.getText().toString();
-        double result = 0;
+        double result;
         if (dividend.length() == 0 || divisor.length() == 0) {
             txtOutput.setText("Beide Felder ausfüllen!");
         } else {
