@@ -73,6 +73,7 @@
             android:layout_alignStart="@+id/lblDividend"
             android:layout_below="@+id/lblDivisor"
             android:layout_marginTop="21dp"
+            android:onClick="calculate"
             android:text="Dividiere" />
 
         <TextView
