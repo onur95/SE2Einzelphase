@@ -1,5 +1,6 @@
 package com.onur.se2einzelphase;
 
+import android.icu.text.DecimalFormat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,13 +28,14 @@ public class MainActivity extends AppCompatActivity {
         txtOutput.setText("");
         String dividend = txtDividend.getText().toString();
         String divisor = txtDivisor.getText().toString();
-        int result = 0;
+        double result = 0;
         if (dividend.length() == 0 || divisor.length() == 0) {
             txtOutput.setText("Beide Felder ausfüllen!");
         } else {
             try {
-                result = c.divide(Integer.parseInt(dividend), Integer.parseInt(divisor));
-                txtOutput.setText(String.valueOf(result));
+                result = c.divide(Double.parseDouble(dividend), Double.parseDouble(divisor));
+                DecimalFormat df= new DecimalFormat("###.#");
+                txtOutput.setText(df.format(result));
             } catch (Exception f) {
                 txtOutput.setText(f.getMessage());
             }
