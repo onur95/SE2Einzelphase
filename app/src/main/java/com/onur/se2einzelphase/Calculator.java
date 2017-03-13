@@ -10,13 +10,9 @@ public class Calculator {
     }
 
     public double divide(double dividend, double divisor){
-        double result;
-        if(divisor==0){
+        if(divisor==0) {
             throw new IllegalArgumentException("Nicht möglich!");
         }
-        else{
-           result=dividend/divisor;
-        }
-        return result;
+        return dividend/divisor;
     }
 }
