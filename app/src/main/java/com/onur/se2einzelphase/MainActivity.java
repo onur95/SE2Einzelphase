@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             try {
                 result = c.divide(Double.parseDouble(dividend), Double.parseDouble(divisor));
-                DecimalFormat df= new DecimalFormat("###.#");
+                DecimalFormat df= new DecimalFormat("###.##");
                 txtOutput.setText(df.format(result));
             } catch (Exception f) {
                 txtOutput.setText(f.getMessage());
